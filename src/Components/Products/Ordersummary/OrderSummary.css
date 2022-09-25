@@ -1,0 +1,29 @@
+.order-summary {
+  height: 944px;
+  background-color: rgb(205, 161, 102);
+}
+.order-details {
+  padding-left: 20px;
+}
+.order-summary h3 {
+  text-align: center;
+}
+.order-div-btn button {
+  width: 92%;
+  margin: auto;
+  height: 48px;
+  display: block;
+  margin-top: 20px;
+}
+.clear-cart-btn {
+  background: #ff3030;
+  border-radius: 4px;
+  border: none;
+  color: white;
+}
+.review-order-btn {
+  background: #ff9900;
+  border-radius: 4px;
+  border: none;
+  color: white;
+}

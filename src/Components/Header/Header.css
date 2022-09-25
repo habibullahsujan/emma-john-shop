@@ -1,0 +1,17 @@
+.header-div {
+  background-color: rgb(42, 37, 37);
+  height: 60px;
+  padding-top:10px;
+}
+.header {
+  width:90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  color: white;
+  text-decoration: none;
+  padding-left: 15px;
+}
