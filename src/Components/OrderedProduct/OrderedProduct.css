@@ -1,0 +1,34 @@
+.ordered-product-img{
+    width: 91px;
+    border-radius: 10px;
+}
+.ordered-product{
+    display: flex;
+    gap: 10px;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.details-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.details-product>div>p{
+    margin: 0;
+    padding: 0;
+}
+.delete-icon{
+    color: #EB5757;
+    font-size: 32px;
+}
+.delete-btn{
+    background-color: lightpink;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

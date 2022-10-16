@@ -1,0 +1,16 @@
+.order{
+  
+    width: 70%;
+    margin:20px auto;
+    display: flex;
+    gap: 20px;
+   justify-content: space-around;
+   
+}
+.cart-summary {
+    /* height: 944px; */
+    background-color: rgb(205, 161, 102);
+    border: 1px solid red;
+    padding: 20px;
+  }
+ 

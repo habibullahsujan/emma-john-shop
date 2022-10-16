@@ -11,7 +11,7 @@ const Product = (props) => {
         <img
           className="product-img"
           src={img}
-          alt="No image found or Slow connection "
+          alt=""
         />
         <div className="product-details">
           <h4>{name}</h4>

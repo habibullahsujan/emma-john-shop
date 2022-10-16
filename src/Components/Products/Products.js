@@ -1,34 +1,68 @@
 import React, { useEffect, useState } from "react";
-import OrderSummary from "./Ordersummary/OrderSummary";
+import { useLoaderData } from "react-router-dom";
+import {
+  addCartLocalStorage,
+  getCartFromLocalStorage,
+} from "../LocalStorage/LocalStorage";
+import OrderSummary from "./OrderSummary/OrderSummary";
 import Product from "./Product/Product";
 import "./Products.css";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [product, setProduct]=useState([])
+  const {products}=useLoaderData();
+  const [product, setProduct] = useState([]);
+
   useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+    const existCart = getCartFromLocalStorage();
+    const savedCart = [];
 
-  const addToCart=(products)=>{
+    for (const id in existCart) {
+      const productInLocalStorage = products.find(
+        (product) => product.id === id
+      );
+      if (productInLocalStorage) {
+        const quantity = existCart[id];
+        productInLocalStorage.quantity = quantity;
+        savedCart.push(productInLocalStorage);
+      }
+    }
+    setProduct(savedCart);
+  }, [products]);
 
-    const newListOfItems=[...product, products]
-    setProduct(newListOfItems)
-  }
+  const addToCart = (selectedProducts) => {
+    const existedProduct=products.find(insideProduct=> insideProduct.id === selectedProducts.id);
+    let newListOfItems=[];
+    if(!existedProduct){
+      selectedProducts.quantity=1;
+      newListOfItems = [...products, existedProduct];
+    }
+    else{
+      const rest=products.filter(restProduct=> restProduct.id !== selectedProducts.id);
+      existedProduct.quantity+= 1;
+      newListOfItems=[...rest, existedProduct]
+    }
+    setProduct(newListOfItems);
+    addCartLocalStorage(selectedProducts.id);
+  };
 
-
+  const clearCart = () => {
+    setProduct([]);
+    localStorage.removeItem('shopping-cart')
+  };
 
   return (
     <div className="products">
       <div className="product">
         {products.map((product) => (
-          <Product product={product} addToCart={addToCart} key={product.id}></Product>
+          <Product
+            product={product}
+            addToCart={addToCart}
+            key={product.id}
+          ></Product>
         ))}
       </div>
       <div className="order-summary">
-        <OrderSummary product={product}></OrderSummary>
+        <OrderSummary product={product} clearCart={clearCart}></OrderSummary>
       </div>
     </div>
   );
