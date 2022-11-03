@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./OrderSummary.css";
 
 const OrderSummary = (props) => {
+  const {children}=props
 
   
   const products=props.product;       
@@ -32,6 +33,8 @@ const OrderSummary = (props) => {
       <div className="order-div-btn">
         <button onClick={props.clearCart} className="clear-cart-btn">Clear Cart</button>
         <Link to={'/orders'}><button to className="review-order-btn">Review Order</button></Link>
+        {children}
+        
       </div>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { removeItemFromLocalStorage } from "../LocalStorage/LocalStorage";
-import OrderedProduct from "../OrderedProduct/OrderedProduct";
-import OrderSummary from "../Products/OrderSummary/OrderSummary";
+import { removeItemFromLocalStorage } from "./LocalStorage";
+
 import "./Order.css";
+import OrderSummary from "./OrderSummary";
+import OrderedProduct from './OrderedProduct'
 
 const Order = () => {
   const { savedProducts } = useLoaderData();
+
 
   const [product, setProduct] = useState(savedProducts);
 
@@ -32,7 +34,14 @@ const Order = () => {
         }
       </div>
       <div className="order-summary">
-        <OrderSummary product={product}></OrderSummary>
+        
+        <OrderSummary product={product}>
+          <Link to={'/shipping'}>
+          <button className="border border-yellow-300 py-2 px-5 mb-10">Shipping Order</button>
+          </Link>
+       
+        
+        </OrderSummary>
       </div>
     </div>
   );

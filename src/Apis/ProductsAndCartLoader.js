@@ -1,4 +1,6 @@
-import { getCartFromLocalStorage } from "../Components/LocalStorage/LocalStorage";
+import { getCartFromLocalStorage } from "../Components/LocalStorage";
+
+
 
 export const ProductsAndCartLoader=async()=>{
     const url=`products.json`;

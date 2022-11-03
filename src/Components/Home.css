@@ -1,0 +1,19 @@
+.banner-div {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.banner-img{
+  width: 451px;
+  height: 520px;
+}
+.shop-now-btn {
+  width: 203px;
+  height: 56px;
+
+  background: #ff9900;
+  border-radius: 4px;
+}

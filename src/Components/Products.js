@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import {
-  addCartLocalStorage,
-  getCartFromLocalStorage,
-} from "../LocalStorage/LocalStorage";
-import OrderSummary from "./OrderSummary/OrderSummary";
-import Product from "./Product/Product";
+import { addCartLocalStorage, getCartFromLocalStorage } from "./LocalStorage";
+import OrderSummary from "./OrderSummary";
+import Product from "./Product";
+
+
 import "./Products.css";
 
 const Products = () => {
